@@ -27,12 +27,11 @@ public class Server {
     private static ConsoleThread consoleThread;
 
     public static void main(String[] args) {
-
 //        if (args.length == 0) {
 //            System.out.println("Имя файла не поступило, остановка...");
 //            System.exit(0);
 //        }
-        //FIXME вставить args[0]
+
         fileManager = new FileManager("src/collection.csv");
         collectionManager = new CollectionManager(fileManager);
         responseSender = new ResponseSender(collectionManager);
