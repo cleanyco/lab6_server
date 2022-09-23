@@ -107,9 +107,7 @@ public class Flat implements Comparable<Flat>, Serializable {
                     if (Float.parseFloat(variableArray[3]) < 24) {
                         coordinates.setY(Float.parseFloat(variableArray[3]));
                     }
-                    final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
-                    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
-                    this.creationDate = LocalDateTime.parse(variableArray[4], dateTimeFormatter);
+                    this.creationDate = LocalDateTime.parse(variableArray[4]);
 
                     if (Long.parseLong(variableArray[5]) > 0 && Long.parseLong(variableArray[5]) < 605) {
                         area = Long.parseLong(variableArray[5]);
