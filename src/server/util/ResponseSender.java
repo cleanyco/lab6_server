@@ -23,7 +23,7 @@ public class ResponseSender{
         commands.add("add_if_max");
         commands.add("add_if_min");
         commands.add("clear");
-//        commands.add("exit");
+        commands.add("exit");
         commands.add("info");
         commands.add("print_descending");
         commands.add("remove_any_by_transport");
@@ -49,8 +49,8 @@ public class ResponseSender{
                     return collectionManager.clear(request);
                 case "info":
                     return collectionManager.info(request);
-//                case "exit":
-//                    return collectionManager.exit(request);
+                case "exit":
+                    return collectionManager.exit(request);
                 case "print_descending":
                     return collectionManager.printDescending(request);
                 case "remove_any_by_transport":

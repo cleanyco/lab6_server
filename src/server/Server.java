@@ -36,9 +36,10 @@ public class Server {
         fileManager = new FileManager("src/collection.csv");
         collectionManager = new CollectionManager(fileManager);
         responseSender = new ResponseSender(collectionManager);
-
+        consoleThread = new ConsoleThread(collectionManager);
 
         try{
+            consoleThread.start();
             selector = Selector.open();
             ServerSocketChannel socket = ServerSocketChannel.open();
             ServerSocket serverSocket = socket.socket();
@@ -105,7 +106,7 @@ public class Server {
             try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
                  ObjectOutputStream oos = new ObjectOutputStream(bos)) {
                 oos.writeObject(response);
-                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                ByteBuffer buffer = ByteBuffer.allocate(1048576);
                 buffer.put(bos.toByteArray());
                 buffer.flip();
                 channel.write(buffer);

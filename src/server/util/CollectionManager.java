@@ -67,6 +67,7 @@ public class CollectionManager {
         return new Response(ResponseCode.OK, result);
     }
 
+    //FIXME
     public void save() {
             try {
                 fileManager.writeCollection(flats);
@@ -195,7 +196,6 @@ public class CollectionManager {
             return new Response(ResponseCode.ERROR, "Аргумент для данной команды не предусмотрен.");
         }
             save();
-            System.exit(0);
             return null;
     }
 
